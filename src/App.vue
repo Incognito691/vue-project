@@ -1,26 +1,62 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <main class="flex justify-center dark:bg-gray-300 min-h-screen p-4 bg-gray-50 overflow-y-hidden">
+    <div class="max-w-5xl w-full flex bg-white h-full p-5 rounded-lg shadow-lg">
+      <div>
+        <h1>{{ greet }} {{ message }}</h1>
+        <h1 v-text="name"></h1>
+        <h1 v-html="boldText"></h1>
+        <h2 v-bind:id="headingId">This is a heading</h2>
+        <h1 v-bind:style="{
+          color: highlight,
+          fontSize: headerSize + 'px',
+        }">Instyle Style</h1>
+        <h1 v-bind:style="styleObject">Style Object</h1>
+        <button v-bind:disabled="isDisabled" class="bg-gray-300 p-2 rounded-lg">Disabled</button>
+        <div v-bind:style="[baseStyleObject, successStyleObject]">Success Style</div>
+        <div v-bind:style="[baseStyleObject, dangerStyleObject]">Danger Style</div>
+      </div>
+    </div>
+  </main>
 </template>
 
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      message: 'Vue!',
+      greet: "Hello",
+      name: "Sahil",
+      boldText: "<b>This is a bold text</b>",
+      headingId: "heading",
+      isDisabled: true,
+      highlight: "orange",
+      headerSize: 100,
+      styleObject: {
+        color: 'red',
+        fontSize: '100px',
+        textDecoration: "bold"
+      },
+      baseStyleObject: {
+        fontSize: '100px',
+        padding: '5px',
+        margin: '5px',
+      },
+      successStyleObject: {
+        color: 'green',
+        backgroundColor: 'lightgreen',
+        border: '1px solid green',
+        borderRadius: '5px',
+      },
+      dangerStyleObject: {
+        color: 'darkred',
+        backgroundColor: 'lightcoral',
+        border: '1px solid red',
+        borderRadius: '5px',
+      }
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
