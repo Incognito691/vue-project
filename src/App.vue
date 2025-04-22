@@ -5,15 +5,15 @@
         <h1>{{ greet }} {{ message }}</h1>
         <h1 v-text="name"></h1>
         <h1 v-html="boldText"></h1>
-        <h2 v-bind:id="headingId">This is a heading</h2>
-        <h1 v-bind:style="{
+        <h2 :id="headingId">This is a heading</h2>
+        <h1 :style="{
           color: highlight,
           fontSize: headerSize + 'px',
         }">Instyle Style</h1>
-        <h1 v-bind:style="styleObject">Style Object</h1>
-        <button v-bind:disabled="isDisabled" class="bg-gray-300 p-2 rounded-lg">Disabled</button>
-        <div v-bind:style="[baseStyleObject, successStyleObject]">Success Style</div>
-        <div v-bind:style="[baseStyleObject, dangerStyleObject]">Danger Style</div>
+        <h1 :style="styleObject">Style Object</h1>
+        <button :disabled="isDisabled" class="bg-gray-300 p-2 rounded-lg">Disabled</button>
+        <div :style="[baseStyleObject, successStyleObject]">Success Style</div>
+        <div :style="[baseStyleObject, dangerStyleObject]">Danger Style</div>
       </div>
     </div>
   </main>
